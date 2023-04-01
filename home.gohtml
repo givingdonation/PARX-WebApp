@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <title>ParX Login</title>
+</head>
+<body>
+<nav class = "container-fluid" style="background: rgba(237,240,243,0.34);">
+    <ul>
+        <img src = "https://pluspng.com/img-png/logo-template-png-logo-templates-1655.png" alt = "icon" style="height: 40%; width: 5%">
+    </ul>
+    <ul>
+        <a href = "./teacher_events">
+            <li>Events</li>
+        </a>
+
+        <a href = "./teacher_create_event">
+            <li>Home</li>
+        </a>
+        <a href="./logout">
+            <li><button>Logout</button></li>
+        </a>
+    </ul>
+</nav>
+
+<div class="grid">
+    <article>
+        <h2>High School Name, District</h2>
+        <h2>{{ .username }}</h2>
+        <h2>{{ .grade }}</h2>
+    </article>
+    <article>
+        <h2>Current Leaders</h2>
+        <h4>End of competition</h4>
+        <details>
+            <summary>
+                9th Grade
+            </summary>
+            <ol>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+            </ol>
+        </details>
+        <details>
+            <summary>
+                10th Grade
+            </summary>
+            <ol>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+            </ol>
+        </details>
+
+
+        <details>
+            <summary>
+                11th Grade
+            </summary>
+            <ol>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+            </ol>
+        </details>
+        <details>
+            <summary>
+                12th Grade
+            </summary>
+            <ol>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+                <li>{{}}</li>
+            </ol>
+        </details>
+
+
+    </article>
+    <article>
+        <h2> Your points: </h2>
+        <h2>{{.points}}</h2>
+    </article>
+</div>
+<div>
+    <h2>Last Quarters Winners:</h2>
+    <details>
+        <summary>
+            Most points:
+        </summary>
+        <ol>
+            <li>9th</li>
+            <li>10th</li>
+            <li>11th</li>
+            <li>12th</li>
+        </ol>
+    </details>
+    <details>
+        <summary>
+            Random Winners:
+        </summary>
+        <ol>
+            <li>9th</li>
+            <li>10th</li>
+            <li>11th</li>
+            <li>12th</li>
+        </ol>
+    </details>
+    <h2>This Quarters Prizes:</h2>
+    <ul>
+        <li>School: </li>
+        <li>Food: </li>
+        <li>Spirit: </li>
+    </ul>
+
+</div>
+</body>
+</html>
