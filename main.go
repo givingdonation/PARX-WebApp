@@ -134,7 +134,36 @@ func main() {
 		userInfo = userData{}
 		http.Redirect(writer, request, "./login", 307)
 	})
+	http.HandleFunc("/student_events", func(writer http.ResponseWriter, request *http.Request) {
+		if (userInfo != userData{}) {
+			//SEMI-SCUFFED WAY OF MAKING THE USER NOT BE ABLE TO ACCESS HOME IF NOT LOGGED IN, CONSIDER USING COOKIES
 
+			//Here we should populate the rest of the userInfo struct with sql queries and load whatever else we need for the home page.
+			//Also, we need to find out how to get signup to upload to db and login to get
+			//We can probably just do different interactions for get/post requests to the home, same way we did
+			err := tplExec(writer, "student_events.gohtml", userInfo)
+			if err != nil {
+				return
+			}
+		} else {
+			http.Redirect(writer, request, "./login", 303)
+		}
+	})
+	http.HandleFunc("/home", func(writer http.ResponseWriter, request *http.Request) {
+		if (userInfo != userData{}) {
+			//SEMI-SCUFFED WAY OF MAKING THE USER NOT BE ABLE TO ACCESS HOME IF NOT LOGGED IN, CONSIDER USING COOKIES
+
+			//Here we should populate the rest of the userInfo struct with sql queries and load whatever else we need for the home page.
+			//Also, we need to find out how to get signup to upload to db and login to get
+			//We can probably just do different interactions for get/post requests to the home, same way we did
+			err := tplExec(writer, "home.gohtml", userInfo)
+			if err != nil {
+				return
+			}
+		} else {
+			http.Redirect(writer, request, "./login", 303)
+		}
+	})
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		if request.URL.Path != "/" {
 			err := tplExec(writer, "error.gohtml", nil)
