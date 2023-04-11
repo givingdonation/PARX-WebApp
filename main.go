@@ -36,6 +36,16 @@ type eventInfo struct {
 	StudentAttended bool
 	inputImage      fs.File
 }
+type homeData struct {
+	Name   string
+	Grade  int
+	Points int
+	//the following can be changed later, it was just convenient and I liked it as a solution, but it may not work
+	Grade9Points  []int
+	Grade10Points []int
+	Grade11Points []int
+	Grade12Points []int
+}
 
 type DisplayError struct {
 	ErrorDescription string
@@ -156,7 +166,15 @@ func main() {
 			//Here we should populate the rest of the userInfo struct with sql queries and load whatever else we need for the home page.
 			//Also, we need to find out how to get signup to upload to db and login to get
 			//We can probably just do different interactions for get/post requests to the home, same way we did
-			err := tplExec(writer, "home.gohtml", userInfo)
+			err := tplExec(writer, "home.gohtml", homeData{
+				Name:          "a",
+				Grade:         9,
+				Points:        10,
+				Grade9Points:  []int{1, 2, 3, 4, 5},
+				Grade10Points: []int{1, 345, 3, 4, 5},
+				Grade11Points: []int{1, 2, 3, 4, 5},
+				Grade12Points: []int{1, 2, 3, 4, 5},
+			})
 			if err != nil {
 				return
 			}

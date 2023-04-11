@@ -26,11 +26,13 @@
 </nav>
 
 <div class="grid">
+
     <article>
         <h2>High School Name, District</h2>
-        <h2>{{ .username }}</h2>
-        <h2>{{ .grade }}</h2>
+        <h2>{{ .Name }}</h2>
+        <h2>{{ .Grade }}</h2>
     </article>
+
     <article>
         <h2>Current Leaders</h2>
         <h4>End of competition</h4>
@@ -39,11 +41,9 @@
                 9th Grade
             </summary>
             <ol>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
+                {{range .Grade9Points}}
+                    <li>{{.}}</li>
+                {{end}}
             </ol>
         </details>
         <details>
@@ -51,11 +51,9 @@
                 10th Grade
             </summary>
             <ol>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
+                {{range .Grade10Points}}
+                <li>{{.}}</li>
+                {{end}}
             </ol>
         </details>
 
@@ -65,11 +63,9 @@
                 11th Grade
             </summary>
             <ol>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
+                {{range .Grade11Points}}
+                    <li>{{.}}</li>
+                {{end}}
             </ol>
         </details>
         <details>
@@ -77,11 +73,9 @@
                 12th Grade
             </summary>
             <ol>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
-                <li>{{}}</li>
+                {{range .Grade12Points}}
+                    <li>{{.}}</li>
+                {{end}}
             </ol>
         </details>
 
@@ -89,8 +83,9 @@
     </article>
     <article>
         <h2> Your points: </h2>
-        <h2>{{.points}}</h2>
+        <h2>{{.Points}}</h2>
     </article>
+
 </div>
 <div>
     <h2>Last Quarters Winners:</h2>
@@ -118,9 +113,9 @@
     </details>
     <h2>This Quarters Prizes:</h2>
     <ul>
-        <li>School: </li>
-        <li>Food: </li>
-        <li>Spirit: </li>
+        <li>School: 100</li>
+        <li>Food: 200</li>
+        <li>Spirit: 500</li>
     </ul>
 
 </div>

@@ -57,6 +57,29 @@ func TestEvents(t *testing.T) {
 	}))
 	t.Logf("All events loaded.")
 }
+func TestHome(t *testing.T) {
+	//SEMI-SCUFFED WAY OF MAKING THE USER NOT BE ABLE TO ACCESS HOME IF NOT LOGGED IN, CONSIDER USING COOKIES
+
+	//Here we should populate the rest of the userInfo struct with sql queries and load whatever else we need for the home page.
+	//Also, we need to find out how to get signup to upload to db and login to get
+	//We can probably just do different interactions for get/post requests to the home, same way we did
+
+	httptest.NewServer(http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+		err := tplExec(writer, "home.gohtml", homeData{
+			Name:          "a",
+			Grade:         9,
+			Points:        10,
+			Grade9Points:  []int{1, 2, 3, 4, 5},
+			Grade10Points: []int{1, 2, 3, 4, 5},
+			Grade11Points: []int{1, 2, 3, 4, 5},
+			Grade12Points: []int{1, 2, 3, 4, 5},
+		})
+		if err != nil {
+			t.Errorf("Failed to load home")
+		}
+	}))
+	t.Logf("All points loaded.")
+}
 func TestTplExec(t *testing.T) {
 	templateNames := []string{"error.gohtml", "login.gohtml", "signup.gohtml", "teacher_events.gohtml"}
 	for i := 0; i < len(templateNames); i++ {
